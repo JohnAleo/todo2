@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AddTodo from "../todo-vazifa/addtodo";
 import TaskList from "../todo-vazifa/tasklist";
+import styled from "styled-components";
 
 let nextId = 3;
 
@@ -52,7 +53,15 @@ const TodoIndex = () => {
     setTodos(todos.filter((value) => value.id !== todoId));
   }
   return (
-    <div>
+    
+    <div style={{display:'flex',
+      flexDirection:'column',
+      alignItems:'center',  
+      width:'400px',
+      height:'500px',
+      borderRadius:'10px',
+      boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
+      }}>
       <h1>Todo List</h1>
       <AddTodo onTodoAdd={handleAddTodo} />
       <TaskList
@@ -61,7 +70,16 @@ const TodoIndex = () => {
         onDeleteData={handleDelete}
       />
     </div>
+    
   );
 };
 
 export default TodoIndex;
+
+const Container=styled.div`
+display:flex;
+align-items:center;
+justify-content:center;
+margin-top: 100px;
+
+`
